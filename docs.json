@@ -3,11 +3,14 @@
   "theme": "mint",
   "name": "Vibedropper",
   "colors": {
-    "primary": "#0f172a",
-    "light": "#334155",
-    "dark": "#0f172a"
+    "primary": "#4f17ca",
+    "light": "#9fb7fa",
+    "dark": "#4f17ca"
   },
   "favicon": "/favicon.svg",
+  "icons": {
+    "library": "lucide"
+  },
   "navigation": {
     "tabs": [
       {
@@ -17,8 +20,7 @@
             "group": "Getting started",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "get-started"
             ]
           },
           {
@@ -47,6 +49,14 @@
         "tab": "API reference",
         "groups": [
           {
+            "group": "Overview",
+            "pages": [
+              "api-reference/introduction",
+              "api-reference/authentication",
+              "api-reference/webhooks"
+            ]
+          },
+          {
             "group": "API",
             "openapi": "https://vibedropper.com/api/v1/openapi"
           }
@@ -66,7 +76,7 @@
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://app.vibedropper.com"
+      "href": "https://vibedroppers.com"
     }
   },
   "contextual": {

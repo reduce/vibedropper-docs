@@ -1,55 +1,44 @@
 ---
-title: "Customers & orders"
-description: "Manage customers, orders, regions, and fulfillment"
+title: "Orders & fulfillment"
+description: "View orders, mark ready, and manage fulfillment"
 ---
-
-## Customers
-
-**Customers** are created when:
-
-- Someone places an **order** on a drop storefront, or
-- You add them manually from the **Customers** view
-
-Customers can be linked to **subscribers** (same email). You can view profile (name, email, region, pickup location), **activity**, and use **filter** and **bulk** actions.
-
-### Customers and roles
-
-If your org uses **customer roles**, you can assign roles (e.g. VIP, wholesale) and use them for segmentation or access. Manage roles from **Customers** → **Roles** (or **Settings** → **Roles**).
 
 ## Orders
 
-Orders come from the **drop storefront** checkout. From **Orders** in the org you can:
+**Orders** are created when someone checks out on a drop storefront. Open **Orders** from the sidebar to see all orders across your drops.
 
-- **List** and **filter** orders by drop, date, status
-- **Export** orders (e.g. CSV)
-- **Mark ready** (bulk or single) for fulfillment
-- **Edit order**: update fulfillment status, notes, or other fields
+## Order list and filters
 
-Each order has customer info, items, totals, and (if used) **region** and **pickup location**.
+You can:
+
+- **Filter** by drop, date, or status.
+- **Group by location** (e.g. pickup location) to see orders per location.
+- **Export** orders (e.g. CSV) for fulfillment or records.
+- **Mark ready** — Mark one or many orders as ready for pickup or shipment. Use this when items are prepared.
+
+## Editing an order
+
+You can open an order to update fulfillment status, add notes, or adjust details. Changes are saved and can be visible to the customer depending on your setup.
+
+## Customers and contacts
+
+When someone places an order, they become a **customer** (contact) in your organization. In **Subscribers** you can see contacts with their order history, total spent, and which lists they’re on. You can filter and manage them there.
 
 ## Regions and pickup locations
 
-- **Regions**: Define geographic regions for taxes and fulfillment. Used at signup (forms), checkout, and in reporting.
-- **Pickup locations**: Optional locations within a region (e.g. pickup points). You can collect pickup at signup and show it at checkout.
+If you use **regions** and **pickup locations**, orders can be assigned to a region and location. Set these up under **Settings** → **Regions**. You can then filter and group orders by location and mark them ready by location.
 
-Configure regions and locations under **Settings** → **Regions** (or equivalent).
+## List tiers
 
-## Tiers (list tiers)
-
-**List tiers** (e.g. free vs paid) are used for:
-
-- **Segments**: Target “tier = paid” in a segment.
-- **Drop access**: Allow only certain tiers to access a drop.
-
-Tiers are managed per list under **Lists** → **[list]** → **Tiers**.
+**List tiers** (e.g. free vs paid) are used in **segments** and to control **drop access**. Manage tiers per list in **Subscribers** → select a list → **Tiers**.
 
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card title="Drops & catalog" icon="package" href="/guides/drops-catalog">
-    Create drops and manage the catalog.
+  <Card title="Drops & products" icon="gift" href="/guides/drops-catalog">
+    Create drops and manage your catalog.
   </Card>
   <Card title="Settings" icon="settings" href="/guides/settings">
-    Regions, roles, and org settings.
+    Regions and organization settings.
   </Card>
 </CardGroup>

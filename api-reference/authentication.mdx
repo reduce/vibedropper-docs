@@ -9,10 +9,10 @@ The Public API (v1) uses **API keys** scoped to a single organization. Each key 
 
 ### Creating a key
 
-1. Log in to the dashboard.
+1. Log in at [Vibedropper](https://vibedroppers.com).
 2. Open the organization.
-3. Go to **Settings** → **API** (or **API keys**).
-4. Click **Create API key** (or equivalent). Name the key and copy it once — it may not be shown again.
+3. Go to **Settings** → **API**.
+4. Click **Create API key**. Name the key and copy it once — it may not be shown again.
 
 ### Sending the key
 
@@ -37,4 +37,4 @@ Either header is valid. Do not send the key in query parameters or request body.
 | **Dashboard / internal** | NextAuth session (cookie) | Browser; `/api/orgs/[slug]/*` and other app routes |
 | **Public API (v1)** | API key (Bearer or `X-API-Key`) | Integrations, server-to-server; `/api/v1/*` |
 
-Dashboard users do not need an API key for normal use. Use API keys only for the Public API and keep them secret.
+Use API keys only for the Public API at **https://vibedropper.com/api/v1**. Keep keys secret and do not send them in query parameters or the request body.

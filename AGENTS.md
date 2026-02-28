@@ -14,12 +14,13 @@
 
 ## Terminology
 
-<!-- Add product-specific terms and preferred usage -->
-<!-- Example: Use "workspace" not "project", "member" not "user" -->
+- **Organization / org**: The tenant workspace (not "project" or "account"). All data is scoped to an org.
+- **List**: Email list; subscribers belong to lists. Use "list" not "audience" when referring to the entity.
+- **Drop**: List-gated, time-limited offer with a public storefront. Use "drop" not "product launch" when referring to the feature.
+- **Subscriber**: Person on a list (not "contact" unless the context is CRM).
+- **Campaign**: Email campaign (not "newsletter" unless it is one).
 
 ## Style preferences
-
-<!-- Add any project-specific style rules below -->
 
 - Use active voice and second person ("you")
 - Keep sentences concise — one idea per sentence
@@ -28,6 +29,3 @@
 - Code formatting for file names, commands, paths, and code references
 
 ## Content boundaries
-
-<!-- Define what should and shouldn't be documented -->
-<!-- Example: Don't document internal admin features -->

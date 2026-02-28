@@ -1,56 +1,49 @@
 ---
 title: "Organizations"
-description: "Create and manage organizations, onboarding, and team access"
+description: "Your workspace, switching organizations, and onboarding"
 ---
 
 ## What is an organization?
 
-An **organization** (org) is your workspace in Vibedropper. All lists, campaigns, drops, catalog, customers, and settings are scoped to an org. You can belong to multiple orgs and switch between them from the dashboard.
+An **organization** is your brand or workspace in Vibedropper. All your lists, campaigns, drops, orders, and settings belong to one organization. You can be in more than one organization and switch between them from the header.
 
-Each org has a unique **slug** used in URLs (e.g. `/org/my-brand`).
+Each organization has a **slug**—a short name used in URLs (e.g. `my-brand`). You choose it when you create the organization.
 
 ## Creating your first organization
 
-After you sign up or log in, the app redirects you to **onboarding** if you have no organization yet.
+When you sign up and don’t have an organization yet, you’re guided to create one:
 
-1. Go to **Dashboard** (or `/dashboard`). You are redirected to `/onboarding` when you have no orgs.
-2. Complete the onboarding wizard:
-   - **Name** and **slug** for your organization
-   - **Brand theme** (optional): primary, secondary, accent, background, and other colors
-   - **Logo** (optional)
-3. Click **Create** to create the org. You are then taken to the org dashboard.
+1. Enter your **organization name** and **slug**.
+2. Optionally set **brand colors** and upload a **logo**.
+3. Click **Create**.
 
-<Note>
-You can create more organizations later from the dashboard or profile. Each org has its own onboarding state and settings.
-</Note>
+You’re then taken to that organization’s Dashboard.
 
-## Organization dashboard
+## Switching organizations
 
-At `/org/[slug]` you get:
+Use the organization switcher in the header to change which organization you’re working in. Each organization has its own Dashboard, Subscribers, Campaigns, Forms, Drops, Orders, and Settings.
 
-- **Overview** (stats, recent activity)
-- **Navigation** to Lists, Campaigns, Forms, Drops, Catalog, Customers, Orders, Pages, Settings
+## Onboarding
 
-Use the org switcher in the header to change organizations.
+After you create an organization, you may see onboarding steps or a checklist. Use them to create your first list, form, or drop. You can also skip and explore from the sidebar.
 
-## Members and roles
+## Team and roles
 
-- **Admin**: Full access; can manage settings, members, and invites.
-- **Member**: Can manage lists, campaigns, drops, catalog, customers, and orders; access depends on your role configuration.
+From **Settings** → **Members** you can invite people to your organization. Roles control what they can do:
 
-Invite members from **Settings** → **Team** (or equivalent). They receive an email with an invite link; accepting adds them to the org with the assigned role.
+- **Admin** — Full access, including settings and team.
+- **Member** — Can manage lists, campaigns, drops, and orders (depending on your setup).
+- **Shop manager** — Can be limited to the Orders area for a specific region or pickup location.
 
-## Onboarding (org-level)
-
-Some orgs show an **onboarding** checklist or flow at `/org/[slug]/onboarding`. Use it to complete setup (e.g. first list, first form, or first drop).
+Invited people receive an email with a link to join. When they accept, they’re added to the organization with the role you chose.
 
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card title="Lists & subscribers" icon="users" href="/guides/lists-subscribers">
+  <Card title="Subscribers & lists" icon="users" href="/guides/lists-subscribers">
     Create lists and grow your audience.
   </Card>
   <Card title="Settings" icon="settings" href="/guides/settings">
-    Branding, domains, API keys, and webhooks.
+    Brand, team, domains, and more.
   </Card>
 </CardGroup>

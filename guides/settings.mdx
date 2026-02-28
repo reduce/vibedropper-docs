@@ -1,54 +1,62 @@
 ---
 title: "Settings"
-description: "Branding, domains, API keys, webhooks, and team"
+description: "Organization, brand, team, domains, and API"
 ---
 
-## Organization settings
+## Where to find Settings
 
-Under **Settings** for your org you can configure:
+Open **Settings** from the header or sidebar when you’re in your organization. Settings are organized into tabs or sections: **General**, **Brand**, **Cart**, **Emails**, **Members**, **Regions**, **Domains**, and **API**.
 
-### Branding
+## General
 
-- **Brand theme**: Primary, secondary, accent, background, text, and other colors. Used in the dashboard and (where applicable) in emails and public pages.
-- **Logo**: Upload or set the org logo. Shown in the dashboard and optionally in emails or public sites.
+- **Organization name** and **slug** (used in URLs).
+- **Website** URL and **logo**.
+- **Social links** (e.g. Twitter, Instagram, Facebook) — optional links shown in your brand presence.
 
-### Domains
+## Brand
 
-- **Domains**: Add and verify domains (e.g. for public sites or email links). Verification is typically via DNS (TXT or CNAME). Configure sending domain verification for email (SES) as required.
+- **Brand colors** — Primary, secondary, accent, background, text, and other colors so your dashboard and emails match your look.
+- **Fonts** and **typography** (if available).
+- **Preview** — See how your brand looks in the shop and in email.
 
-### API keys (Public API)
+## Cart
 
-- **API keys**: Create and revoke keys for the **Public API (v1)**. These keys are scoped to the org. Use them with `Authorization: Bearer <key>` or `X-API-Key: <key>` when calling the Public API. See [Authentication](/api-reference/authentication).
+- **Cart limits** — Maximum price or weight per cart for your drop storefronts, if your plan supports it.
 
-### Webhooks
+## Emails
 
-- **Webhooks**: Configure outbound webhook URLs for events (e.g. subscriber added/removed, campaign sent, order created). The app signs payloads with **HMAC-SHA256**; verify using the `X-Webhook-Signature` header. See [Webhooks](/api-reference/webhooks).
+- **Default from name and address** — Who your emails come from (e.g. “My Brand” &lt;hello@yourdomain.com&gt;).
+- **Sending domain** — Verify the domain you send from so emails deliver reliably. Use **Sending domains** or the Domains section to add and verify.
 
-### Team
+## Members
 
-- **Members**: View members and their roles (Admin, Member).
-- **Invites**: Send email invites. Invitees get a link; accepting adds them to the org with the chosen role.
+- **Team** — See who’s in your organization and their roles.
+- **Invite** — Send an invite by email. The person gets a link to join; when they accept, they’re added with the role you chose.
+- **Pending invites** — View and cancel invites that haven’t been accepted yet.
 
-### Social
+Roles (e.g. Admin, Member, Shop manager) control what each person can do. Admins can change settings and manage the team.
 
-- **Social**: Connect social accounts via Late.dev. See [Social integration](/guides/social).
+## Regions
 
-### Regions and roles
+- **Regions and pickup locations** — Define geographic regions and pickup points. Used for signup (e.g. on forms), checkout, and fulfillment. You can filter and group orders by location and set taxes per region if supported.
 
-- **Regions**: Define geographic regions and pickup locations for taxes and fulfillment.
-- **Roles**: If your org uses customer or custom roles, configure them here or from the Customers area.
+## Domains
 
-## Super admin
+- **Custom domains** — Add and verify your own domain so your drop and form URLs use your brand (e.g. `shop.yourbrand.com`). Add the DNS records we show you, then verify.
+- **Sending domain** — Verify the domain you use for sending email so inboxes trust your messages.
 
-If your deployment has **super admin** access (e.g. `/super-admin`), you can manage all organizations and platform-wide settings. This is typically restricted to a small set of users (e.g. marked in the database).
+## API
+
+- **API keys** — Create keys for the Vibedropper API if you want to integrate your own tools or scripts. Keys are scoped to your organization. See the **API reference** in the docs for how to use them.
+- **Webhooks** — Configure webhook URLs so Vibedropper can send you events (e.g. new subscriber, campaign sent, order created). Useful for syncing with other systems.
 
 ## Next steps
 
 <CardGroup cols={2}>
   <Card title="API reference" icon="code" href="/api-reference/introduction">
-    Public API and webhooks.
+    Use the API and webhooks.
   </Card>
-  <Card title="Authentication" icon="key" href="/api-reference/authentication">
-    API key usage and scopes.
+  <Card title="Get started" icon="rocket" href="/get-started">
+    Back to basics.
   </Card>
 </CardGroup>

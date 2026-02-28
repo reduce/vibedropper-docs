@@ -1,70 +1,73 @@
 ---
-title: "Drops & catalog"
+title: "Drops & products"
 description: "Create list-gated drops and manage your product catalog"
 ---
 
 ## What is a drop?
 
-A **drop** is a time-limited, **list-gated** offer. You create a drop, attach products from your **catalog**, and choose which lists or tiers have access. Subscribers who have access receive a link (e.g. via email or “Send drop” from the dashboard); they enter their email, get a magic link, and can shop on the drop’s **public storefront**.
+A **drop** is a time-limited offer that only certain subscribers can shop. You create a drop, add products from your **catalog**, and choose which lists or tiers have access. Those subscribers get a link; they enter their email, receive a sign-in link, and can shop on the drop’s **storefront**.
 
 ## Creating a drop
 
-1. Open **Drops** from the org sidebar.
-2. Click **Create drop** (or equivalent).
+1. Open **Drops** from the sidebar.
+2. Click **Create drop** (or **New drop**).
 3. Set:
-   - **Name** and slug/URL
-   - **Start and end time** (optional)
-   - **Audience**: which lists or tiers can access
-   - **Store layout**: add blocks (product grid, banner, heading, text, CTA, countdown, etc.) in the drop editor
+   - **Name** and URL slug
+   - **Start and end date/time** (optional)
+   - **Audience** — which lists or tiers can access the drop
+   - **Store layout** — add sections (product grid, banner, text, countdown, etc.) in the drop editor
 
-4. Add **items** from your catalog (products). Configure quantity, variants, and pricing as needed.
-5. Save. You can **clone** an existing drop to reuse setup.
+4. Add **products** from your catalog. Set quantity, variants, and pricing for the drop.
+5. Save. You can **clone** an existing drop to copy its setup.
 
-## Drop store editor
+## Designing the drop store
 
-The drop has a **store editor** with blocks/sections, for example:
+In the drop editor you can add and arrange **blocks**, for example:
 
 - Product grid, banner, heading, text, image
-- Grid (columns), container (flex), cards, spacer, divider
-- Countdown, CTA, video, FAQ, testimonial, badge, stats, logo cloud
-- Pricing tiers, feature list, guarantee
+- Columns, cards, spacer, divider
+- Countdown, button, video, FAQ, testimonial
+- Stats, logo strip, pricing, feature list
 
-You can use **AI generate** (when available) to draft the store layout. **Revisions** let you compare or restore previous layouts.
+Some accounts can use **AI** to suggest a layout. **Revisions** let you compare or restore earlier versions.
 
-## Catalog
+## Products (catalog)
 
-The **catalog** holds your products. Products can have:
+Your **catalog** holds your products. From **Products** in the sidebar (admins only when drops are enabled), you can add products with:
 
-- Title, description, handle/slug
+- Title, description, and handle
 - **Variants** (e.g. size, color)
 - **Images**
-- **Collections** for grouping
+- **Collections** to group products
 
-Create and edit products under **Catalog** (`/org/[slug]/catalog`). When building a drop, you add **catalog products** as drop items and set quantity and pricing for the drop.
+When you build a drop, you add catalog products as drop items and set quantity and pricing for that drop.
 
-## Sending a drop
+## Sending the drop to your audience
 
-- **Send drop**: From the drop detail page you can “Send” or “Notify” the audience (e.g. email to the list with the drop link). Subscribers use the link, enter email, and get a magic link to the store.
-- **Public URL**: The storefront lives at `/sites/[orgSlug]/drops/[dropSlug]`. Share this URL; only subscribers with access can complete the magic-link flow and shop.
+From the drop page you can **Send** or **Notify** your audience—for example, email the list with the drop link. Subscribers use the link, enter their email, and get a sign-in link to the store.
 
-## Access flow (customer)
+The **store URL** looks like:  
+`https://vibedroppers.com/sites/your-org/drops/your-drop`  
+(or your custom domain). Share this URL; only subscribers with access can complete the sign-in and shop.
 
-1. User visits the drop URL.
-2. Enters email. App checks if that email has access (list/tier).
-3. If yes: user receives a magic link and can open the store, add to cart, and checkout.
-4. If no: user sees a message that they don’t have access or can sign up for the list (if you’ve configured that).
+## How customers get access
+
+1. They visit the drop URL.
+2. They enter their email. We check if that email has access (list/tier).
+3. If yes — they get a sign-in link and can open the store, add to cart, and checkout.
+4. If no — they see a message that they don’t have access, or can sign up for the list if you’ve set that up.
 
 ## Orders
 
-Orders placed on a drop appear under **Orders** in the org. You can list, filter, export, and mark orders ready. See [Customers & orders](/guides/customers-orders).
+Orders from the drop appear under **Orders** in the sidebar. You can list, filter, export, and mark orders ready. See [Orders & fulfillment](/guides/customers-orders).
 
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card title="Customers & orders" icon="shopping-cart" href="/guides/customers-orders">
-    View and fulfill orders; manage customers.
+  <Card title="Orders & fulfillment" icon="shopping-bag" href="/guides/customers-orders">
+    View and manage orders.
   </Card>
   <Card title="Public sites" icon="globe" href="/guides/public-sites">
-    Drop URLs and public storefronts.
+    Drop and form URLs.
   </Card>
 </CardGroup>

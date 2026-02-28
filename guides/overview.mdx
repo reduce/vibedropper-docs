@@ -1,70 +1,46 @@
 ---
-title: "Platform overview"
-description: "Core concepts, key flows, and where features live in Vibedropper"
+title: "Overview"
+description: "What Vibedropper does and how the main areas work"
 ---
 
-## Core concepts
+## What Vibedropper is for
 
-| Concept | Description |
-|--------|-------------|
-| **Organization** | Your tenant. All data (lists, campaigns, drops, catalog, customers) is scoped to an org. Identified by `slug` in URLs (e.g. `/org/my-brand`). |
-| **List** | Email list. Subscribers belong to lists; lists can have tiers and power campaign audiences and drop access. |
-| **Drop** | Time-limited, list-gated offer. Has a public storefront; only subscribers with access (via list/tier) can shop. |
-| **Campaign** | Email campaign. Drag-and-drop editor, templates, scheduling, tracking. Audiences from lists or segments. |
+Vibedropper combines **email** and **list-gated drops** so you can own your audience and run exclusive offers. You build lists, send campaigns, and create drops that only certain subscribers can shop.
 
-## Main features
+## Main areas
 
-### Email & lists
+| Area | What you do here |
+|------|------------------|
+| **Dashboard** | See a summary of your audience, recent campaigns and drops, and quick actions. |
+| **Subscribers** | Manage lists, add or import subscribers, create segments, and view contacts. |
+| **Campaigns** | Create emails, choose who receives them, and send or schedule. |
+| **Forms** | Build signup forms and get embed code or a link to grow your lists. |
+| **Drops** | Create list-gated drops, design the store, and share the link with your audience. |
+| **Pages** | Create custom landing pages for your brand. |
+| **Orders** | View orders from your drops, filter by location, mark ready, and export. |
+| **Products** | Manage your product catalog (used when building drops). Admins only when drops are enabled. |
+| **Settings** | Set organization name, brand, cart limits, email settings, team, regions, domains, and API. |
 
-- **Lists**: Create, reorder, add tiers. Subscribers have status (subscribed, unsubscribed, pending, bounced). Custom fields, region/pickup at signup.
-- **Segments**: Dynamic segments with rules; evaluate and count.
-- **Forms**: Embeddable signup forms (HTML or direct link); optional region/pickup for list growth.
-- **Subscribers**: Import/export, batch add, double opt-in confirm, one-click unsubscribe. SES webhook for bounces and complaints.
-- **Campaigns**: Create, edit (Topol.io editor), render, send, test, duplicate. Revisions and AI generate. Audience from lists/segments; open/click tracking.
+## How it fits together
 
-### Drops & store
+1. **Lists** hold your subscribers. You can add people manually, import them, or collect signups with **forms**.
+2. **Campaigns** go to one or more lists or segments. You design the email, pick the audience, then send or schedule.
+3. **Drops** are time-limited stores. You choose which lists or tiers have access; those subscribers get a link and can shop. Orders show up under **Orders**.
+4. **Settings** control how your brand looks, who’s on your team, where you deliver (regions), and how you send email.
 
-- **Drops**: Create, edit (store editor with blocks/sections), clone. Items from catalog; audience by list/tier; send (notify list). Revisions and AI-generated store layout.
-- **Catalog**: Products (variants, images, collections). Used by drop items.
-- **Public store**: List-gated; email → magic link; cart, checkout, order confirmation.
-- **Orders**: List, filter, export, mark ready; edit order (e.g. fulfillment). Regions and pickup locations.
+## Where to go next
 
-### Customers & organization
-
-- **Customers**: From store orders or manual add; linked to subscribers. Profile, activity, filter/bulk.
-- **Regions & locations**: Geographic regions and pickup locations; taxes. Used for signup, checkout, and fulfillment.
-- **Tiers**: List tiers (e.g. free vs paid); used for segments and drop access.
-- **Org settings**: Branding, domains, API keys, webhooks. Members, roles, invites.
-
-## Key flows
-
-1. **List growth** — Form embed or direct link → subscribe (optional confirm) → subscriber on list; optional region/pickup.
-2. **Drop access** — User visits drop URL → enters email → access verified against list/tier → magic link → can shop.
-3. **Campaign** — Pick list/segment → build email → send or schedule → tracking (opens/clicks); webhook on send.
-4. **Order** — Add to cart (drop store) → checkout (customer/address, region, payment) → order created → webhook; admin marks ready.
-
-## Where it lives in the app
-
-| Area | Dashboard routes | Purpose |
-|------|------------------|--------|
-| Org home | `/org/[slug]` | Overview and nav |
-| Lists | `/org/[slug]/lists` | Lists and tiers |
-| Subscribers | `/org/[slug]/subscribers` | Subscriber list, segments, tags |
-| Campaigns | `/org/[slug]/campaigns` | Create, edit, send campaigns |
-| Forms | `/org/[slug]/forms` | Embeddable signup forms |
-| Drops | `/org/[slug]/drops` | Drops and store editor |
-| Catalog | `/org/[slug]/catalog` | Products and collections |
-| Customers | `/org/[slug]/customers` | Customers and roles |
-| Orders | `/org/[slug]/orders` | Orders and fulfillment |
-| Pages | `/org/[slug]/pages` | Custom landing pages |
-| Settings | `/org/[slug]/settings` | Branding, domains, API, webhooks, social |
-| Public site | `/sites/[orgSlug]/drops/[dropSlug]` | Drop storefront, forms, pages |
-
-## Tech stack
-
-- **App**: Next.js 15 (App Router), React 19, TypeScript
-- **Data**: Prisma, PostgreSQL
-- **Auth**: NextAuth (session)
-- **Email**: AWS SES; Topol.io for campaign editor
-- **Storage**: AWS S3 (uploads)
-- **Queue**: BullMQ + Redis (optional, for scheduling)
+<CardGroup cols={2}>
+  <Card title="Subscribers & lists" icon="users" href="/guides/lists-subscribers">
+    Lists, segments, and your audience.
+  </Card>
+  <Card title="Campaigns" icon="send" href="/guides/campaigns">
+    Create and send emails.
+  </Card>
+  <Card title="Drops & products" icon="gift" href="/guides/drops-catalog">
+    Drops and your catalog.
+  </Card>
+  <Card title="Settings" icon="settings" href="/guides/settings">
+    Organization and preferences.
+  </Card>
+</CardGroup>

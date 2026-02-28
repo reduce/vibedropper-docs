@@ -1,60 +1,61 @@
 ---
 title: "Introduction"
-description: "Vibedropper Public API (v1) for lists, subscribers, customers, and campaigns"
+description: "Use the Vibedropper Public API for lists, subscribers, customers, and campaigns"
 ---
+
+<Info>
+This section is for **developers and integrators** who want to connect their own apps or scripts to Vibedropper. If you’re only using the dashboard, see the [Guides](/).
+</Info>
 
 ## Overview
 
-The **Public API (v1)** lets you integrate with Vibedropper using an **API key**. You can manage lists, subscribers, customers, and campaigns programmatically. The API is REST-style and returns JSON.
+The **Vibedropper Public API (v1)** lets you integrate with Vibedropper using an **API key**. Manage lists, subscribers, customers, and campaigns programmatically. The API is REST-style and returns JSON.
 
 ## Base URL
 
-Use your app origin as the base URL. For example:
+All API requests use this base URL:
 
-- **Production**: `https://app.vibedropper.com`
-- **Local**: `http://localhost:3000`
+**`https://vibedropper.com/api/v1`**
 
-All v1 endpoints are under the `/api/v1` path.
+Example: to list lists, request **GET** `https://vibedropper.com/api/v1/lists` with your API key in the headers.
 
 ## OpenAPI spec
 
 The full OpenAPI 3.0 spec is available at:
 
-**GET** `/api/v1/openapi`
+**[https://vibedropper.com/api/v1/openapi](https://vibedropper.com/api/v1/openapi)**
 
-Use this URL in Swagger UI, Postman, or any OpenAPI client to explore endpoints, request/response schemas, and error formats.
+Use this URL in Swagger UI, Postman, Insomnia, or any OpenAPI client to explore endpoints, request/response schemas, and error formats. The spec defines the **VibeDropper API** (lists, subscribers, customers, campaigns) and uses Bearer API key authentication.
 
 ## Authentication
 
-All v1 endpoints require an **API key** scoped to an organization. Create keys in the dashboard under **Organization Settings** → **API**.
+All endpoints require an **API key** from **Settings → API** in your Vibedropper dashboard at [vibedroppers.com](https://vibedroppers.com). Send it in every request as:
 
-Send the key in one of these ways:
-
-- **Header**: `Authorization: Bearer <your_api_key>`
+- **Header**: `Authorization: Bearer <your_api_key>`, or  
 - **Header**: `X-API-Key: <your_api_key>`
 
-Invalid or missing keys return `401` with a JSON error. See [Authentication](/api-reference/authentication) for details.
+Missing or invalid keys return `401` with a JSON error. See [Authentication](/api-reference/authentication) for details.
 
 ## Endpoints (summary)
 
 | Method | Path | Description |
 |--------|------|-------------|
-| GET | `/api/v1/lists` | List lists (paginated) |
-| GET | `/api/v1/lists/{listId}` | Get a list |
-| GET | `/api/v1/lists/{listId}/subscribers` | List subscribers |
-| POST | `/api/v1/lists/{listId}/subscribers` | Add subscriber |
-| DELETE | `/api/v1/lists/{listId}/subscribers/{subscriberId}` | Remove subscriber |
-| GET | `/api/v1/customers` | List customers |
-| GET | `/api/v1/customers/{customerId}` | Get customer |
-| PATCH | `/api/v1/customers/{customerId}` | Update customer |
-| GET | `/api/v1/campaigns` | List campaigns |
-| GET | `/api/v1/campaigns/{campaignId}` | Get campaign |
+| GET | `/lists` | List lists (paginated) |
+| GET | `/lists/{listId}` | Get a list |
+| GET | `/lists/{listId}/subscribers` | List subscribers |
+| POST | `/lists/{listId}/subscribers` | Add subscriber |
+| DELETE | `/lists/{listId}/subscribers/{subscriberId}` | Remove subscriber |
+| GET | `/customers` | List customers |
+| GET | `/customers/{customerId}` | Get customer |
+| PATCH | `/customers/{customerId}` | Update customer |
+| GET | `/campaigns` | List campaigns |
+| GET | `/campaigns/{campaignId}` | Get campaign |
 
-Request/response shapes and error format are defined in the OpenAPI spec.
+Full URL base: **`https://vibedropper.com/api/v1`**. Request/response shapes and error format are in the [OpenAPI spec](https://vibedropper.com/api/v1/openapi).
 
 ## Webhooks
 
-Outbound webhooks are configured per organization in **Settings** → **API**. Events include subscriber added/removed, campaign sent, order created, and more. See [Webhooks](/api-reference/webhooks) for event types, payload format, and signature verification.
+Configure outbound webhooks in your dashboard under **Settings → API**. Events include subscriber added/removed, campaign sent, order created, and more. Webhook event types, payload format, and **X-Webhook-Signature** (HMAC-SHA256) verification are documented at **GET** [https://vibedropper.com/api/v1/webhooks/spec](https://vibedropper.com/api/v1/webhooks/spec). See [Webhooks](/api-reference/webhooks) for a guide.
 
 ## Next steps
 

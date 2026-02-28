@@ -1,49 +1,46 @@
 ---
 title: "Forms"
-description: "Create embeddable signup forms to grow your lists"
+description: "Create signup forms to grow your lists"
 ---
 
 ## What are forms?
 
-**Forms** are embeddable signup forms that add subscribers to your lists. You can embed them on your site (HTML snippet) or share a direct link. Forms support optional double opt-in, custom fields, and region/pickup when configured.
+**Forms** are signup forms that add people to your lists. You can embed a form on your website or share a direct link. Forms can collect email and optional fields (e.g. name, region) and support double opt-in.
 
 ## Creating a form
 
-1. Open **Forms** from the org sidebar.
-2. Click **Create form** (or equivalent).
-3. Configure:
-   - **Name** and optional description
+1. Open **Forms** from the sidebar.
+2. Click **Create form** (or **New form**).
+3. Set:
+   - **Title** and optional description
    - **List** (and optionally tier) to add subscribers to
-   - **Fields**: email (required), optional first name, last name, and custom fields
-   - **Double opt-in**: Turn on to send a confirmation email before marking as subscribed
-   - **Region / pickup**: If your org uses regions, you can collect them on the form
+   - **Fields** — email (required), plus any optional fields you want
+   - **Double opt-in** — Turn on to send a confirmation email before they’re marked as subscribed
+   - **Region / pickup** — If you use regions, you can collect them on the form
 
-Save the form. You get an **embed code** and a **direct link**.
+Save the form. You’ll get an **embed code** and a **direct link**.
 
 ## Embedding a form
 
-- **Embed code**: Copy the HTML snippet from the form’s embed or share section. Paste it into your website or landing page. Submissions post to the app and add subscribers to the selected list.
-- **Direct link**: Share the form URL (e.g. `/sites/[orgSlug]/forms/[formSlug]`). Visitors open the page and sign up there.
+Copy the **embed code** from the form’s share or embed section. Paste it into your website or landing page. When someone submits, they’re added to the list you chose.
 
-Public form URLs are under your org’s **sites** domain (e.g. `https://yourapp.com/sites/my-org/forms/my-form`).
+## Sharing the link
 
-## Submissions and revisions
+You can also share the form’s **direct link**. Visitors open that page and sign up there. The link looks like:  
+`https://vibedroppers.com/sites/your-org/forms/your-form`  
+(or your custom domain if you’ve set one up).
 
-- **Submissions**: View form submissions in the form detail or submissions view. Each submission creates or updates a subscriber on the list.
-- **Revisions**: If the app stores form revisions, you can preview or restore previous versions.
+## Submissions and status
 
-## AI and preview
-
-- **AI generate**: Some flows offer AI-generated form copy or layout; use them from the form editor when available.
-- **Preview**: Use the draft preview URL (if shown) to see how the form looks before publishing.
+View **submissions** from the form’s page. Each submission creates or updates a subscriber on the list. If you use **revisions**, you can preview or restore earlier versions of the form.
 
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card title="Lists & subscribers" icon="users" href="/guides/lists-subscribers">
+  <Card title="Subscribers & lists" icon="users" href="/guides/lists-subscribers">
     Manage lists and subscriber status.
   </Card>
   <Card title="Public sites" icon="globe" href="/guides/public-sites">
-    How drop and form URLs work.
+    How form and drop URLs work.
   </Card>
 </CardGroup>

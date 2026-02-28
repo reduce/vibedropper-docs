@@ -1,83 +1,75 @@
 ---
-title: "Lists & subscribers"
-description: "Manage email lists, tiers, segments, and subscribers"
+title: "Subscribers & lists"
+description: "Manage lists, subscribers, segments, and your audience"
 ---
+
+## Subscribers area
+
+From the sidebar, open **Subscribers** to manage your audience. Here you’ll see your **lists**, **segments**, and **contacts**. You can switch between list view, segment view, and tag view using the tabs or sidebar.
 
 ## Lists
 
-A **list** is an email list that holds your subscribers. You use lists to:
+A **list** is a group of subscribers. You use lists to:
 
-- Build campaign audiences
-- Gate drop access (only certain lists or tiers can shop)
-- Segment with **segments** (dynamic rules)
+- Choose who receives **campaigns**.
+- Control who can access a **drop** (by list or tier).
 
 ### Creating a list
 
-1. Open **Lists** from the org sidebar.
-2. Click **Create list** (or equivalent).
-3. Enter a name and optional description. Save.
-
-Lists can have **tiers** (e.g. free vs paid). Tiers are used for segmentation and for controlling who can access a drop.
+1. In **Subscribers**, go to the lists section.
+2. Click **Create list** (or **Add list**).
+3. Enter a name and optional description, then save.
 
 ### List tiers
 
-- Create and edit tiers from the list detail page (`/org/[slug]/lists/[listId]/tiers`).
-- Use tiers when building segments or when configuring drop access.
+Lists can have **tiers** (e.g. free vs paid). You use tiers when building **segments** or when deciding who can access a drop. Create and edit tiers from the list’s detail or tiers page.
 
-## Subscribers
+## Adding subscribers
 
-Subscribers belong to lists and have a **status**:
+You can add people to a list in several ways:
+
+- **Import** — Upload a CSV from the list or subscribers view.
+- **Add in bulk** — Add multiple emails (and optional fields) in the UI.
+- **Forms** — Publish a signup form or share its link; new signups are added to the list you chose.
+
+You can turn on **double opt-in** so new signups must confirm their email before they’re marked as subscribed.
+
+## Subscriber status
+
+Each subscriber has a status:
 
 - **Subscribed** — Receives campaigns and can access list-gated drops (if allowed).
-- **Unsubscribed** — Opted out; no emails.
-- **Pending** — Awaiting double opt-in confirmation.
-- **Bounced** — Marked from SES bounce handling.
+- **Unsubscribed** — Has opted out; they don’t receive emails.
+- **Pending** — Waiting for double opt-in confirmation.
+- **Bounced** — Address is no longer valid; we don’t send to them.
 
-### Adding subscribers
-
-- **Import**: Upload a CSV from the list or subscribers view.
-- **Batch add**: Add multiple emails (and optional fields) via the UI.
-- **Forms**: Publish an embeddable form or signup link; new signups are added to the chosen list (with optional double opt-in and region/pickup).
-
-### Double opt-in
-
-When enabled for a list or form, new signups receive a confirmation email. They become **subscribed** only after they click the confirmation link. Pending subscribers appear as **pending** until confirmed.
-
-### Unsubscribe and bounces
-
-- **Unsubscribe**: Emails include an unsubscribe link; one-click unsubscribe updates status and is tracked.
-- **Bounces/complaints**: AWS SES can send events to a webhook; the app updates subscriber status (e.g. bounced) so you don’t send again.
+Unsubscribe links in your emails let people opt out with one click. Bounced and complained addresses are updated automatically so you don’t send to them again.
 
 ## Segments
 
-**Segments** are dynamic groups based on rules (e.g. “subscribed”, “on list X”, “in tier Y”, custom fields). You can:
+**Segments** are dynamic groups based on rules (e.g. subscribed, on a certain list, in a tier, or custom fields). You can:
 
 - **Evaluate** a segment to see who matches.
-- **Count** the segment for audience sizing.
-- Use segments as **campaign audiences** or in reporting.
+- **Preview the count** for campaign planning.
+- Use segments as **campaign audiences**.
 
-Create and edit segments under **Subscribers** (e.g. `/org/[slug]/segments`).
+Create and edit segments from the Subscribers area (e.g. **Segments** in the sidebar or tabs).
 
-## Custom fields and region/pickup
+## Tags and custom fields
 
-- **Custom fields**: Define custom fields on lists or org; collect them on signup forms and use them in segments and personalization.
-- **Region / pickup**: If you use regions and pickup locations, you can collect them at signup and use them for fulfillment and reporting.
+If your organization uses **tags**, you can assign them to subscribers and filter or target by tag. **Custom fields** let you store extra information (e.g. phone, company) and use it in segments and personalization.
 
-## Subscriber views
+## Regions and pickup
 
-- **By list**: Open a list and view its subscribers.
-- **By segment**: Open a segment to see matching subscribers.
-- **By tag**: View subscribers by tag (if your org uses tags).
-
-From these views you can import, export, and (where supported) batch update status or fields.
+If you use **regions** and **pickup locations**, you can collect them at signup and use them for fulfillment and reporting. Set up regions under **Settings** → **Regions**.
 
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card title="Campaigns" icon="mail" href="/guides/campaigns">
+  <Card title="Campaigns" icon="send" href="/guides/campaigns">
     Send campaigns to lists and segments.
   </Card>
-  <Card title="Forms" icon="rectangle-horizontal" href="/guides/forms">
-    Embeddable forms for list growth.
+  <Card title="Forms" icon="clipboard-list" href="/guides/forms">
+    Create forms to grow your lists.
   </Card>
 </CardGroup>
