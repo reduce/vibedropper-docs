@@ -7,7 +7,7 @@
     "light": "#9fb7fa",
     "dark": "#4f17ca"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/logo/dark.png",
   "icons": {
     "library": "lucide"
   },
@@ -58,7 +58,7 @@
           },
           {
             "group": "API",
-            "openapi": "https://vibedropper.com/api/v1/openapi"
+            "openapi": "https://app.stainless.com/api/spec/documented/vibedropper/openapi.documented.yml"
           }
         ]
       }
