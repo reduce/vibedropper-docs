@@ -1,0 +1,56 @@
+---
+title: "Webhooks"
+description: "Outbound webhook events and signature verification"
+---
+
+## Overview
+
+Vibedropper can send **outbound webhooks** when certain events occur (e.g. subscriber added, campaign sent, order created). You configure one or more webhook URLs per organization in **Settings** → **API**. Each delivery is signed so you can verify it came from Vibedropper.
+
+## Webhook spec
+
+The full webhook specification (events, payload shape, signature) is available at:
+
+**GET** `/api/v1/webhooks/spec`
+
+Use this in your app to see event types and payload structures.
+
+## Signature verification
+
+Every webhook request is signed with **HMAC-SHA256** using your webhook secret.
+
+- **Header**: `X-Webhook-Signature`
+- **Format**: `sha256=<hex>`
+- **Computation**: `HMAC-SHA256(raw_request_body_utf8, webhook_secret)`
+
+To verify:
+
+1. Read the raw request body (UTF-8).
+2. Compute `HMAC-SHA256(body, your_webhook_secret)`.
+3. Encode the result as hex and compare with the value after `sha256=` in `X-Webhook-Signature` using a **constant-time** comparison to avoid timing attacks.
+
+<Warning>
+Do not trust the payload without verifying the signature. The secret is shown when you create or view the webhook in Settings → API.
+</Warning>
+
+## Event types (summary)
+
+| Event | Description |
+|-------|-------------|
+| `subscriber.added` | Subscriber was added to a list |
+| `subscriber.removed` | Subscriber was removed or unsubscribed |
+| `subscriber.bounced` | Subscriber marked as bounced (SES) |
+| `subscriber.complained` | Subscriber complained (SES) |
+| `campaign.sent` | Campaign was sent |
+| `campaign.scheduled` | Campaign was scheduled |
+| `order.created` | Order was created (drop store) |
+
+Payload structure: top-level `event`, `timestamp`, and `data` (event-specific). Exact fields are in the webhook spec.
+
+## Configuring webhooks
+
+1. Go to **Settings** → **API** (or **Webhooks**).
+2. Add a webhook URL and (if applicable) select events.
+3. Save. Store the webhook secret securely; use it only for signature verification.
+
+The app will POST to your URL when events occur. Respond with `2xx` quickly; the app may retry on failure according to its retry policy.

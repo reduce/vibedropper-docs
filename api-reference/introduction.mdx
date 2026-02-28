@@ -1,33 +1,68 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: "Introduction"
+description: "Vibedropper Public API (v1) for lists, subscribers, customers, and campaigns"
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+## Overview
 
-## Welcome
+The **Public API (v1)** lets you integrate with Vibedropper using an **API key**. You can manage lists, subscribers, customers, and campaigns programmatically. The API is REST-style and returns JSON.
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+## Base URL
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+Use your app origin as the base URL. For example:
+
+- **Production**: `https://app.vibedropper.com`
+- **Local**: `http://localhost:3000`
+
+All v1 endpoints are under the `/api/v1` path.
+
+## OpenAPI spec
+
+The full OpenAPI 3.0 spec is available at:
+
+**GET** `/api/v1/openapi`
+
+Use this URL in Swagger UI, Postman, or any OpenAPI client to explore endpoints, request/response schemas, and error formats.
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+All v1 endpoints require an **API key** scoped to an organization. Create keys in the dashboard under **Organization Settings** → **API**.
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
-```
+Send the key in one of these ways:
+
+- **Header**: `Authorization: Bearer <your_api_key>`
+- **Header**: `X-API-Key: <your_api_key>`
+
+Invalid or missing keys return `401` with a JSON error. See [Authentication](/api-reference/authentication) for details.
+
+## Endpoints (summary)
+
+| Method | Path | Description |
+|--------|------|-------------|
+| GET | `/api/v1/lists` | List lists (paginated) |
+| GET | `/api/v1/lists/{listId}` | Get a list |
+| GET | `/api/v1/lists/{listId}/subscribers` | List subscribers |
+| POST | `/api/v1/lists/{listId}/subscribers` | Add subscriber |
+| DELETE | `/api/v1/lists/{listId}/subscribers/{subscriberId}` | Remove subscriber |
+| GET | `/api/v1/customers` | List customers |
+| GET | `/api/v1/customers/{customerId}` | Get customer |
+| PATCH | `/api/v1/customers/{customerId}` | Update customer |
+| GET | `/api/v1/campaigns` | List campaigns |
+| GET | `/api/v1/campaigns/{campaignId}` | Get campaign |
+
+Request/response shapes and error format are defined in the OpenAPI spec.
+
+## Webhooks
+
+Outbound webhooks are configured per organization in **Settings** → **API**. Events include subscriber added/removed, campaign sent, order created, and more. See [Webhooks](/api-reference/webhooks) for event types, payload format, and signature verification.
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Authentication" icon="key" href="/api-reference/authentication">
+    API keys and headers.
+  </Card>
+  <Card title="Webhooks" icon="webhook" href="/api-reference/webhooks">
+    Events and signature verification.
+  </Card>
+</CardGroup>

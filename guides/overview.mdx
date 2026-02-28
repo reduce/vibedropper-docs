@@ -1,0 +1,70 @@
+---
+title: "Platform overview"
+description: "Core concepts, key flows, and where features live in Vibedropper"
+---
+
+## Core concepts
+
+| Concept | Description |
+|--------|-------------|
+| **Organization** | Your tenant. All data (lists, campaigns, drops, catalog, customers) is scoped to an org. Identified by `slug` in URLs (e.g. `/org/my-brand`). |
+| **List** | Email list. Subscribers belong to lists; lists can have tiers and power campaign audiences and drop access. |
+| **Drop** | Time-limited, list-gated offer. Has a public storefront; only subscribers with access (via list/tier) can shop. |
+| **Campaign** | Email campaign. Drag-and-drop editor, templates, scheduling, tracking. Audiences from lists or segments. |
+
+## Main features
+
+### Email & lists
+
+- **Lists**: Create, reorder, add tiers. Subscribers have status (subscribed, unsubscribed, pending, bounced). Custom fields, region/pickup at signup.
+- **Segments**: Dynamic segments with rules; evaluate and count.
+- **Forms**: Embeddable signup forms (HTML or direct link); optional region/pickup for list growth.
+- **Subscribers**: Import/export, batch add, double opt-in confirm, one-click unsubscribe. SES webhook for bounces and complaints.
+- **Campaigns**: Create, edit (Topol.io editor), render, send, test, duplicate. Revisions and AI generate. Audience from lists/segments; open/click tracking.
+
+### Drops & store
+
+- **Drops**: Create, edit (store editor with blocks/sections), clone. Items from catalog; audience by list/tier; send (notify list). Revisions and AI-generated store layout.
+- **Catalog**: Products (variants, images, collections). Used by drop items.
+- **Public store**: List-gated; email → magic link; cart, checkout, order confirmation.
+- **Orders**: List, filter, export, mark ready; edit order (e.g. fulfillment). Regions and pickup locations.
+
+### Customers & organization
+
+- **Customers**: From store orders or manual add; linked to subscribers. Profile, activity, filter/bulk.
+- **Regions & locations**: Geographic regions and pickup locations; taxes. Used for signup, checkout, and fulfillment.
+- **Tiers**: List tiers (e.g. free vs paid); used for segments and drop access.
+- **Org settings**: Branding, domains, API keys, webhooks. Members, roles, invites.
+
+## Key flows
+
+1. **List growth** — Form embed or direct link → subscribe (optional confirm) → subscriber on list; optional region/pickup.
+2. **Drop access** — User visits drop URL → enters email → access verified against list/tier → magic link → can shop.
+3. **Campaign** — Pick list/segment → build email → send or schedule → tracking (opens/clicks); webhook on send.
+4. **Order** — Add to cart (drop store) → checkout (customer/address, region, payment) → order created → webhook; admin marks ready.
+
+## Where it lives in the app
+
+| Area | Dashboard routes | Purpose |
+|------|------------------|--------|
+| Org home | `/org/[slug]` | Overview and nav |
+| Lists | `/org/[slug]/lists` | Lists and tiers |
+| Subscribers | `/org/[slug]/subscribers` | Subscriber list, segments, tags |
+| Campaigns | `/org/[slug]/campaigns` | Create, edit, send campaigns |
+| Forms | `/org/[slug]/forms` | Embeddable signup forms |
+| Drops | `/org/[slug]/drops` | Drops and store editor |
+| Catalog | `/org/[slug]/catalog` | Products and collections |
+| Customers | `/org/[slug]/customers` | Customers and roles |
+| Orders | `/org/[slug]/orders` | Orders and fulfillment |
+| Pages | `/org/[slug]/pages` | Custom landing pages |
+| Settings | `/org/[slug]/settings` | Branding, domains, API, webhooks, social |
+| Public site | `/sites/[orgSlug]/drops/[dropSlug]` | Drop storefront, forms, pages |
+
+## Tech stack
+
+- **App**: Next.js 15 (App Router), React 19, TypeScript
+- **Data**: Prisma, PostgreSQL
+- **Auth**: NextAuth (session)
+- **Email**: AWS SES; Topol.io for campaign editor
+- **Storage**: AWS S3 (uploads)
+- **Queue**: BullMQ + Redis (optional, for scheduling)

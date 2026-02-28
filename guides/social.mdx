@@ -1,0 +1,47 @@
+---
+title: "Social integration"
+description: "Connect social accounts and schedule posts with Late.dev"
+---
+
+## Overview
+
+Social connections in Vibedropper are powered by [Late.dev](https://getlate.dev) — a social media scheduling API that supports 13+ platforms. Each organization has one **Late Profile** that groups its connected social accounts. The profile is created when you connect your first account.
+
+## Setup
+
+1. Create an account at [getlate.dev](https://getlate.dev).
+2. Go to **Settings** → **API Keys** → **Create API Key**.
+3. Add the key to your environment:
+
+```env
+LATE_API_KEY=sk_...
+```
+
+4. Restart the app. The **Social** page in your org will use this key to list and connect accounts.
+
+## Connecting accounts
+
+1. Open **Settings** → **Social** (or **Social** from the org sidebar).
+2. Click **Connect** for a platform (e.g. Twitter, Instagram).
+3. You are redirected to Late’s OAuth flow for that platform. Authorize the app.
+4. After redirect back, the account appears in the list. You can disconnect from the same page.
+
+## What you can do
+
+- **Connect** multiple platforms per org (within Late’s limits).
+- **Disconnect** an account from the Social page.
+- Use Late’s scheduling and posting features according to your Late plan; Vibedropper provides the connection UI and stores the org’s Late profile ID.
+
+## API behavior
+
+- **List accounts**: `GET /api/orgs/[slug]/social/accounts` — returns connected accounts for the org’s Late profile.
+- **Connect**: `POST /api/orgs/[slug]/social/connect` with `{ platform: "twitter" }` (or other platform) — returns or redirects to Late’s OAuth URL.
+- **Disconnect**: `DELETE /api/orgs/[slug]/social/accounts/[accountId]` — removes the account from the profile.
+
+The app lazily creates a Late Profile for the org on first connect and stores the profile ID on the organization.
+
+## Next steps
+
+<Card title="Settings" icon="settings" href="/guides/settings">
+  Domains, API keys, webhooks, and more.
+</Card>

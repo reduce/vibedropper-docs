@@ -1,0 +1,40 @@
+---
+title: "Authentication"
+description: "API key authentication for the Vibedropper Public API"
+---
+
+## API keys
+
+The Public API (v1) uses **API keys** scoped to a single organization. Each key has access only to that org’s lists, subscribers, customers, and campaigns.
+
+### Creating a key
+
+1. Log in to the dashboard.
+2. Open the organization.
+3. Go to **Settings** → **API** (or **API keys**).
+4. Click **Create API key** (or equivalent). Name the key and copy it once — it may not be shown again.
+
+### Sending the key
+
+Send the key in every request using one of these headers:
+
+| Header | Example |
+|--------|--------|
+| `Authorization` | `Authorization: Bearer your_api_key_here` |
+| `X-API-Key` | `X-API-Key: your_api_key_here` |
+
+Either header is valid. Do not send the key in query parameters or request body.
+
+### Errors
+
+- **Missing key**: No `Authorization` or `X-API-Key` header → `401 Unauthorized` with a JSON body such as `{ "error": "Missing or invalid API key" }`.
+- **Invalid key**: Unknown or revoked key → `401 Unauthorized`.
+
+## Dashboard vs Public API
+
+| Context | Auth method | Where used |
+|--------|-------------|------------|
+| **Dashboard / internal** | NextAuth session (cookie) | Browser; `/api/orgs/[slug]/*` and other app routes |
+| **Public API (v1)** | API key (Bearer or `X-API-Key`) | Integrations, server-to-server; `/api/v1/*` |
+
+Dashboard users do not need an API key for normal use. Use API keys only for the Public API and keep them secret.

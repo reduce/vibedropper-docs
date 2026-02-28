@@ -1,80 +1,135 @@
 ---
 title: "Quickstart"
-description: "Start building awesome documentation in minutes"
+description: "Set up the Vibedropper app locally and run it in minutes"
 ---
 
-## Get started in three steps
+## Prerequisites
 
-Get your documentation site running locally and make your first customization.
+Before you begin, ensure you have:
 
-### Step 1: Set up your local environment
+- **Node.js** 18.17.0 or higher
+- **npm** 9.0.0 or higher
+- **PostgreSQL** (local or hosted)
+- **AWS account** with S3 (uploads) and SES (email) configured
+- **Redis** (optional; for BullMQ campaign scheduling)
 
-<AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
-    
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
-    
-    <Tip>Your preview updates automatically as you edit files.</Tip>
-  </Accordion>
-</AccordionGroup>
+## Step 1: Clone and install
 
-### Step 2: Deploy your changes
+<Steps>
+  <Step title="Clone the app">
 
-<AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
-    
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
-</Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
+The app lives in the `mailapp` directory. If you have it elsewhere, clone or open that repo:
 
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
+```bash
+cd /path/to/mailapp
+```
 
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
-  </Accordion>
-</AccordionGroup>
+  </Step>
+  <Step title="Install dependencies">
 
-### Step 3: Go live
+```bash
+npm install
+```
 
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
-</Accordion>
+  </Step>
+</Steps>
+
+## Step 2: Environment setup
+
+Create a `.env` file in the project root (use `.env.example` if provided):
+
+```env
+# Database
+DATABASE_URL="postgresql://user:password@localhost:5432/vibedropper"
+
+# NextAuth
+NEXTAUTH_SECRET="generate-a-random-secret-here"
+NEXTAUTH_URL="http://localhost:3000"
+
+# AWS S3
+AWS_ACCESS_KEY_ID="your-aws-access-key"
+AWS_SECRET_ACCESS_KEY="your-aws-secret-key"
+AWS_REGION="us-east-1"
+AWS_S3_BUCKET="your-bucket-name"
+
+# AWS SES
+AWS_SES_REGION="us-east-1"
+AWS_SES_FROM_EMAIL="noreply@yourdomain.com"
+AWS_SES_FROM_NAME="Vibedropper"
+
+# Google OAuth (optional)
+GOOGLE_CLIENT_ID="your-google-client-id"
+GOOGLE_CLIENT_SECRET="your-google-client-secret"
+
+# App
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+NEXT_PUBLIC_APP_NAME="Vibedropper"
+
+# Redis (optional)
+REDIS_URL="redis://localhost:6379"
+
+# Topol.io email editor — required for campaigns
+NEXT_PUBLIC_TOPOL_API_KEY="your-topol-api-key"
+```
+
+Generate a strong secret for `NEXTAUTH_SECRET`:
+
+```bash
+openssl rand -base64 32
+```
+
+<Tip>
+**Topol.io**: Get an API key from [app.topol.io](https://app.topol.io) → **Settings** → **Plugin** → **New API Token**. Whitelist `localhost:3000` and your production domain.
+</Tip>
+
+## Step 3: Database setup
+
+<Steps>
+  <Step title="Generate Prisma client and push schema">
+
+```bash
+npx prisma generate
+npx prisma db push
+```
+
+  </Step>
+  <Step title="Seed the database (optional)">
+
+```bash
+npm run db:seed
+```
+
+After seeding, you can log in with:
+
+- **Email**: `demo@vibedropper.com`
+- **Password**: `demo123456`
+
+  </Step>
+</Steps>
+
+## Step 4: Run the app
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000). Sign up or use the demo credentials after seeding.
+
+<Note>
+The app uses Next.js with Turbopack for fast local development. Changes hot-reload automatically.
+</Note>
 
 ## Next steps
 
-Now that you have your docs running, explore these key features:
+- Complete **onboarding** to create your first organization and set brand colors.
+- Create a **list** and an **embeddable form** to grow subscribers.
+- Build a **campaign** with the drag-and-drop editor or create a **drop** and public storefront.
 
 <CardGroup cols={2}>
-
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
-</Card>
-
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
-</Card>
-
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
-</Card>
-
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
-</Card>
-
+  <Card title="Platform overview" icon="map" href="/guides/overview">
+    Core concepts and key flows.
+  </Card>
+  <Card title="Organizations" icon="building-2" href="/guides/organizations">
+    Multi-tenant orgs and onboarding.
+  </Card>
 </CardGroup>
-
-<Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
-</Note>

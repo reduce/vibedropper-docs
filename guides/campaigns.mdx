@@ -1,0 +1,64 @@
+---
+title: "Campaigns"
+description: "Create, edit, and send email campaigns with the drag-and-drop editor"
+---
+
+## What is a campaign?
+
+A **campaign** is an email you send to an audience (one or more lists or segments). You design it with the **Topol.io** drag-and-drop editor, then send immediately or schedule for later.
+
+## Creating a campaign
+
+1. Open **Campaigns** from the org sidebar.
+2. Click **Create campaign**.
+3. Choose a template or start from scratch. You are taken to the campaign editor.
+
+## Editor (Topol.io)
+
+The campaign editor is powered by **Topol.io**. You can:
+
+- Drag and drop blocks (text, images, buttons, columns, etc.)
+- Use **merge tags** for personalization (e.g. `{{first_name}}`, `{{email}}`).
+- Insert an **unsubscribe link** (required for compliance).
+- Preview and send test emails.
+
+<Tip>
+You need a valid **Topol.io API key** in your environment (`NEXT_PUBLIC_TOPOL_API_KEY`) for the editor to load. Get it from [app.topol.io](https://app.topol.io) → **Settings** → **Plugin**.
+</Tip>
+
+## Choosing an audience
+
+Before sending, you choose the **audience**:
+
+- One or more **lists**, or
+- One or more **segments**
+
+The app calculates the audience size. Only **subscribed** subscribers (and segment rules) are included.
+
+## Sending and scheduling
+
+- **Send now**: Sends to the full audience immediately (or via queue if BullMQ is configured).
+- **Schedule**: Set a date and time; the campaign is queued and sent at that time.
+
+After sending, you can view **opens** and **clicks** (if tracking is enabled). A **webhook** can fire when a campaign is sent (see [Webhooks](/api-reference/webhooks)).
+
+## Revisions and AI
+
+- **Revisions**: The app can store revisions of the campaign design so you can compare or restore.
+- **AI generate**: Some flows offer AI-generated content or subject lines; use them from the campaign or audience step when available.
+
+## Duplicate and test
+
+- **Duplicate**: Create a copy of an existing campaign to reuse design and audience.
+- **Test email**: Send a test to your own email before sending to the full audience.
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Lists & subscribers" icon="users" href="/guides/lists-subscribers">
+    Build lists and segments for audiences.
+  </Card>
+  <Card title="API reference" icon="code" href="/api-reference/introduction">
+    Public API and webhooks for campaigns.
+  </Card>
+</CardGroup>

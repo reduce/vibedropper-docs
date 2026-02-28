@@ -1,0 +1,70 @@
+---
+title: "Drops & catalog"
+description: "Create list-gated drops and manage your product catalog"
+---
+
+## What is a drop?
+
+A **drop** is a time-limited, **list-gated** offer. You create a drop, attach products from your **catalog**, and choose which lists or tiers have access. Subscribers who have access receive a link (e.g. via email or “Send drop” from the dashboard); they enter their email, get a magic link, and can shop on the drop’s **public storefront**.
+
+## Creating a drop
+
+1. Open **Drops** from the org sidebar.
+2. Click **Create drop** (or equivalent).
+3. Set:
+   - **Name** and slug/URL
+   - **Start and end time** (optional)
+   - **Audience**: which lists or tiers can access
+   - **Store layout**: add blocks (product grid, banner, heading, text, CTA, countdown, etc.) in the drop editor
+
+4. Add **items** from your catalog (products). Configure quantity, variants, and pricing as needed.
+5. Save. You can **clone** an existing drop to reuse setup.
+
+## Drop store editor
+
+The drop has a **store editor** with blocks/sections, for example:
+
+- Product grid, banner, heading, text, image
+- Grid (columns), container (flex), cards, spacer, divider
+- Countdown, CTA, video, FAQ, testimonial, badge, stats, logo cloud
+- Pricing tiers, feature list, guarantee
+
+You can use **AI generate** (when available) to draft the store layout. **Revisions** let you compare or restore previous layouts.
+
+## Catalog
+
+The **catalog** holds your products. Products can have:
+
+- Title, description, handle/slug
+- **Variants** (e.g. size, color)
+- **Images**
+- **Collections** for grouping
+
+Create and edit products under **Catalog** (`/org/[slug]/catalog`). When building a drop, you add **catalog products** as drop items and set quantity and pricing for the drop.
+
+## Sending a drop
+
+- **Send drop**: From the drop detail page you can “Send” or “Notify” the audience (e.g. email to the list with the drop link). Subscribers use the link, enter email, and get a magic link to the store.
+- **Public URL**: The storefront lives at `/sites/[orgSlug]/drops/[dropSlug]`. Share this URL; only subscribers with access can complete the magic-link flow and shop.
+
+## Access flow (customer)
+
+1. User visits the drop URL.
+2. Enters email. App checks if that email has access (list/tier).
+3. If yes: user receives a magic link and can open the store, add to cart, and checkout.
+4. If no: user sees a message that they don’t have access or can sign up for the list (if you’ve configured that).
+
+## Orders
+
+Orders placed on a drop appear under **Orders** in the org. You can list, filter, export, and mark orders ready. See [Customers & orders](/guides/customers-orders).
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Customers & orders" icon="shopping-cart" href="/guides/customers-orders">
+    View and fulfill orders; manage customers.
+  </Card>
+  <Card title="Public sites" icon="globe" href="/guides/public-sites">
+    Drop URLs and public storefronts.
+  </Card>
+</CardGroup>

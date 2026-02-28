@@ -1,0 +1,56 @@
+---
+title: "Organizations"
+description: "Create and manage organizations, onboarding, and team access"
+---
+
+## What is an organization?
+
+An **organization** (org) is your workspace in Vibedropper. All lists, campaigns, drops, catalog, customers, and settings are scoped to an org. You can belong to multiple orgs and switch between them from the dashboard.
+
+Each org has a unique **slug** used in URLs (e.g. `/org/my-brand`).
+
+## Creating your first organization
+
+After you sign up or log in, the app redirects you to **onboarding** if you have no organization yet.
+
+1. Go to **Dashboard** (or `/dashboard`). You are redirected to `/onboarding` when you have no orgs.
+2. Complete the onboarding wizard:
+   - **Name** and **slug** for your organization
+   - **Brand theme** (optional): primary, secondary, accent, background, and other colors
+   - **Logo** (optional)
+3. Click **Create** to create the org. You are then taken to the org dashboard.
+
+<Note>
+You can create more organizations later from the dashboard or profile. Each org has its own onboarding state and settings.
+</Note>
+
+## Organization dashboard
+
+At `/org/[slug]` you get:
+
+- **Overview** (stats, recent activity)
+- **Navigation** to Lists, Campaigns, Forms, Drops, Catalog, Customers, Orders, Pages, Settings
+
+Use the org switcher in the header to change organizations.
+
+## Members and roles
+
+- **Admin**: Full access; can manage settings, members, and invites.
+- **Member**: Can manage lists, campaigns, drops, catalog, customers, and orders; access depends on your role configuration.
+
+Invite members from **Settings** → **Team** (or equivalent). They receive an email with an invite link; accepting adds them to the org with the assigned role.
+
+## Onboarding (org-level)
+
+Some orgs show an **onboarding** checklist or flow at `/org/[slug]/onboarding`. Use it to complete setup (e.g. first list, first form, or first drop).
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Lists & subscribers" icon="users" href="/guides/lists-subscribers">
+    Create lists and grow your audience.
+  </Card>
+  <Card title="Settings" icon="settings" href="/guides/settings">
+    Branding, domains, API keys, and webhooks.
+  </Card>
+</CardGroup>

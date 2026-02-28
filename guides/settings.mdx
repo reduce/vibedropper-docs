@@ -1,0 +1,54 @@
+---
+title: "Settings"
+description: "Branding, domains, API keys, webhooks, and team"
+---
+
+## Organization settings
+
+Under **Settings** for your org you can configure:
+
+### Branding
+
+- **Brand theme**: Primary, secondary, accent, background, text, and other colors. Used in the dashboard and (where applicable) in emails and public pages.
+- **Logo**: Upload or set the org logo. Shown in the dashboard and optionally in emails or public sites.
+
+### Domains
+
+- **Domains**: Add and verify domains (e.g. for public sites or email links). Verification is typically via DNS (TXT or CNAME). Configure sending domain verification for email (SES) as required.
+
+### API keys (Public API)
+
+- **API keys**: Create and revoke keys for the **Public API (v1)**. These keys are scoped to the org. Use them with `Authorization: Bearer <key>` or `X-API-Key: <key>` when calling the Public API. See [Authentication](/api-reference/authentication).
+
+### Webhooks
+
+- **Webhooks**: Configure outbound webhook URLs for events (e.g. subscriber added/removed, campaign sent, order created). The app signs payloads with **HMAC-SHA256**; verify using the `X-Webhook-Signature` header. See [Webhooks](/api-reference/webhooks).
+
+### Team
+
+- **Members**: View members and their roles (Admin, Member).
+- **Invites**: Send email invites. Invitees get a link; accepting adds them to the org with the chosen role.
+
+### Social
+
+- **Social**: Connect social accounts via Late.dev. See [Social integration](/guides/social).
+
+### Regions and roles
+
+- **Regions**: Define geographic regions and pickup locations for taxes and fulfillment.
+- **Roles**: If your org uses customer or custom roles, configure them here or from the Customers area.
+
+## Super admin
+
+If your deployment has **super admin** access (e.g. `/super-admin`), you can manage all organizations and platform-wide settings. This is typically restricted to a small set of users (e.g. marked in the database).
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="API reference" icon="code" href="/api-reference/introduction">
+    Public API and webhooks.
+  </Card>
+  <Card title="Authentication" icon="key" href="/api-reference/authentication">
+    API key usage and scopes.
+  </Card>
+</CardGroup>

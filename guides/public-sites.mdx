@@ -1,0 +1,60 @@
+---
+title: "Public sites"
+description: "Drop storefronts, form signup pages, and custom pages"
+---
+
+## Overview
+
+Vibedropper serves **public** pages under the **sites** routes. These are the pages your audience sees: drop storefronts, signup forms, and (if enabled) custom landing pages. All are scoped by organization slug.
+
+## Drop storefront
+
+| URL pattern | Purpose |
+|-------------|---------|
+| `/sites/[orgSlug]/drops/[dropSlug]` | Drop landing; email entry and access check |
+| `/sites/[orgSlug]/drops/[dropSlug]/store` | Store after access (magic link) |
+| `/sites/[orgSlug]/drops/[dropSlug]/checkout` | Checkout |
+| `/sites/[orgSlug]/drops/[dropSlug]/order/[orderId]` | Order confirmation / view |
+| `/sites/[orgSlug]/drops/[dropSlug]/orders` | Customer’s order history for that drop |
+
+Flow:
+
+1. User visits the drop URL, enters email.
+2. App verifies access (list/tier). If allowed, user gets a magic link.
+3. User opens store, adds to cart, checks out.
+4. Order is created; customer can view order and orders list.
+
+## Form signup
+
+| URL pattern | Purpose |
+|-------------|---------|
+| `/sites/[orgSlug]/forms/[formSlug]` | Public signup form |
+| `/sites/[orgSlug]/lists/[listId]/signup` | List signup (if supported) |
+| `/sites/[orgSlug]/lists/verify` | Double opt-in confirmation (e.g. verify token) |
+
+Embedding: use the form’s **embed code** on your own site; submissions go to the app and add subscribers to the list.
+
+## Custom pages
+
+If your org uses **Pages** (custom landing pages):
+
+| URL pattern | Purpose |
+|-------------|---------|
+| `/sites/[orgSlug]/pages/[pageSlug]` | Public page |
+
+Create and edit pages from **Pages** in the org dashboard. You can use blocks and link to drops or forms.
+
+## Base URL and domains
+
+Public site URLs use your **app domain** (e.g. `https://app.vibedropper.com/sites/my-org/drops/my-drop`). If you configure **custom domains** in **Settings**, you can serve these paths under your own domain. Configure and verify domains in **Settings** → **Domains** (or equivalent).
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Drops & catalog" icon="package" href="/guides/drops-catalog">
+    Create drops and storefronts.
+  </Card>
+  <Card title="Forms" icon="rectangle-horizontal" href="/guides/forms">
+    Build signup forms.
+  </Card>
+</CardGroup>
