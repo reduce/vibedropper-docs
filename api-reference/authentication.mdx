@@ -9,7 +9,7 @@ The Public API (v1) uses **API keys** scoped to a single organization. Each key 
 
 ### Creating a key
 
-1. Log in at [Vibedropper](https://vibedroppers.com).
+1. Log in at [Vibedropper](https://vibedropper.com).
 2. Open the organization.
 3. Go to **Settings** → **API**.
 4. Click **Create API key**. Name the key and copy it once — it may not be shown again.
@@ -18,10 +18,10 @@ The Public API (v1) uses **API keys** scoped to a single organization. Each key 
 
 Send the key in every request using one of these headers:
 
-| Header | Example |
-|--------|--------|
+| Header          | Example                                   |
+| --------------- | ----------------------------------------- |
 | `Authorization` | `Authorization: Bearer your_api_key_here` |
-| `X-API-Key` | `X-API-Key: your_api_key_here` |
+| `X-API-Key`     | `X-API-Key: your_api_key_here`            |
 
 Either header is valid. Do not send the key in query parameters or request body.
 
@@ -32,9 +32,9 @@ Either header is valid. Do not send the key in query parameters or request body.
 
 ## Dashboard vs Public API
 
-| Context | Auth method | Where used |
-|--------|-------------|------------|
-| **Dashboard / internal** | NextAuth session (cookie) | Browser; `/api/orgs/[slug]/*` and other app routes |
-| **Public API (v1)** | API key (Bearer or `X-API-Key`) | Integrations, server-to-server; `/api/v1/*` |
+| Context                  | Auth method                     | Where used                                         |
+| ------------------------ | ------------------------------- | -------------------------------------------------- |
+| **Dashboard / internal** | NextAuth session (cookie)       | Browser; `/api/orgs/[slug]/*` and other app routes |
+| **Public API (v1)**      | API key (Bearer or `X-API-Key`) | Integrations, server-to-server; `/api/v1/*`        |
 
 Use API keys only for the Public API at **https://vibedropper.com/api/v1**. Keep keys secret and do not send them in query parameters or the request body.

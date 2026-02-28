@@ -4,7 +4,9 @@ description: "Use the Vibedropper Public API for lists, subscribers, customers, 
 ---
 
 <Info>
-This section is for **developers and integrators** who want to connect their own apps or scripts to Vibedropper. If you’re only using the dashboard, see the [Guides](/).
+  This section is for **developers and integrators** who want to connect their
+  own apps or scripts to Vibedropper. If you’re only using the dashboard, see
+  the [Guides](/).
 </Info>
 
 ## Overview
@@ -29,27 +31,27 @@ Use this URL in Swagger UI, Postman, Insomnia, or any OpenAPI client to explore 
 
 ## Authentication
 
-All endpoints require an **API key** from **Settings → API** in your Vibedropper dashboard at [vibedroppers.com](https://vibedroppers.com). Send it in every request as:
+All endpoints require an **API key** from **Settings → API** in your Vibedropper dashboard at [vibedropper.com](https://vibedropper.com). Send it in every request as:
 
-- **Header**: `Authorization: Bearer <your_api_key>`, or  
+- **Header**: `Authorization: Bearer <your_api_key>`, or
 - **Header**: `X-API-Key: <your_api_key>`
 
 Missing or invalid keys return `401` with a JSON error. See [Authentication](/api-reference/authentication) for details.
 
 ## Endpoints (summary)
 
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/lists` | List lists (paginated) |
-| GET | `/lists/{listId}` | Get a list |
-| GET | `/lists/{listId}/subscribers` | List subscribers |
-| POST | `/lists/{listId}/subscribers` | Add subscriber |
-| DELETE | `/lists/{listId}/subscribers/{subscriberId}` | Remove subscriber |
-| GET | `/customers` | List customers |
-| GET | `/customers/{customerId}` | Get customer |
-| PATCH | `/customers/{customerId}` | Update customer |
-| GET | `/campaigns` | List campaigns |
-| GET | `/campaigns/{campaignId}` | Get campaign |
+| Method | Path                                         | Description            |
+| ------ | -------------------------------------------- | ---------------------- |
+| GET    | `/lists`                                     | List lists (paginated) |
+| GET    | `/lists/{listId}`                            | Get a list             |
+| GET    | `/lists/{listId}/subscribers`                | List subscribers       |
+| POST   | `/lists/{listId}/subscribers`                | Add subscriber         |
+| DELETE | `/lists/{listId}/subscribers/{subscriberId}` | Remove subscriber      |
+| GET    | `/customers`                                 | List customers         |
+| GET    | `/customers/{customerId}`                    | Get customer           |
+| PATCH  | `/customers/{customerId}`                    | Update customer        |
+| GET    | `/campaigns`                                 | List campaigns         |
+| GET    | `/campaigns/{campaignId}`                    | Get campaign           |
 
 Full URL base: **`https://vibedropper.com/api/v1`**. Request/response shapes and error format are in the [OpenAPI spec](https://vibedropper.com/api/v1/openapi).
 
